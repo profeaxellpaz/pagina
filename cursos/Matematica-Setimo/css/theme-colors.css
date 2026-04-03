@@ -1,44 +1,41 @@
-/* =========================================
-   TEMA DE COLORES - LMS PROFE AXELL
-   Archivo: css/theme-colors.css
-========================================= */
+:root{
+  /* MODO CLARO (DEFAULT) */
+  --nav-bg: #DAD4B5;
+  --page-bg: #F2E8C6;
 
-:root {
-  --teal:       #0BAAB8;
-  --teal-dark:  #098a96;
-  --orange:     #E84A1A;
-  --yellow:     #F5A800;
-  --blue-light: #62B8E8;
-  --blue-mid:   #3B69C4;
+  --btn-bg: #982B1C;
+  --btn-text: #ffffff;
 
-  --white:      #ffffff;
-  --bg:         #f7fefe;
-  --gray:       #f0f4f5;
+  --card-bg: #ffffff;
+  --card-border: rgba(0,0,0,0.12);
 
-  --text:       #1a2a2e;
-  --text-muted: #5a7a80;
+  --text: #1a1a1a;
+  --text-muted: rgba(0,0,0,0.68);
 
-  --card-bg:    #ffffff;
-  --border:     rgba(0,0,0,0.08);
+  --link: #982B1C;
 
-  --shadow:     0 18px 60px rgba(0,0,0,0.10);
+  --shadow: 0 12px 35px rgba(0,0,0,0.12);
+
+  --radius: 16px;
+  --radius-sm: 12px;
 }
 
-/* =========================================
-   MODO OSCURO PARA LMS
-   Se activa cuando body tiene la clase .dark-mode
-========================================= */
+/* MODO OSCURO */
+body.dark-mode{
+  --nav-bg: #1b1b1b;
+  --page-bg: #101010;
 
-body.dark-mode {
-  --bg:         #0f171a;
-  --gray:       #162226;
-  --white:      #121c20;
+  /* BOTONES EN OSCURO */
+  --btn-bg: #DAD4B5;
+  --btn-text: #982B1C;
 
-  --text:       #e8f6f7;
-  --text-muted: #9ac6cc;
+  --card-bg: #1c1c1c;
+  --card-border: rgba(255,255,255,0.12);
 
-  --card-bg:    #121c20;
-  --border:     rgba(255,255,255,0.12);
+  --text: #f2f2f2;
+  --text-muted: rgba(255,255,255,0.70);
 
-  --shadow:     0 18px 60px rgba(0,0,0,0.35);
+  --link: #ffb3a8;
+
+  --shadow: 0 14px 40px rgba(0,0,0,0.40);
 }
