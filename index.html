@@ -40,6 +40,24 @@
     .nav-cta { background: var(--teal); color: #fff !important; padding: 0.5rem 1.25rem; border-radius: 999px; transition: background 0.2s, transform 0.2s !important; }
     .nav-cta:hover { background: var(--teal-dark) !important; transform: translateY(-1px); }
 
+    /* BOTON MODO OSCURO */
+    .dark-btn{
+      border: none;
+      background: rgba(11,170,184,0.12);
+      border: 2px solid rgba(11,170,184,0.3);
+      color: var(--teal-dark);
+      font-size: 1.1rem;
+      font-weight: 900;
+      cursor: pointer;
+      border-radius: 999px;
+      padding: 0.55rem 0.9rem;
+      transition: transform 0.2s, background 0.2s;
+    }
+    .dark-btn:hover{
+      transform: translateY(-2px);
+      background: rgba(11,170,184,0.18);
+    }
+
     /* HERO */
     .hero {
       min-height: 100vh; display: flex; align-items: center; justify-content: center;
@@ -191,10 +209,50 @@
       .about-grid       { grid-template-columns: 1fr; }
       .contact-wrap     { grid-template-columns: 1fr; }
       nav .nav-links    { display: none; }
+      nav { justify-content: space-between; }
     }
     @media (max-width: 480px) {
       .steam-grid { grid-template-columns: repeat(2, 1fr); }
       .form-row   { grid-template-columns: 1fr; }
+    }
+
+    /* MODO OSCURO */
+    body.dark-mode{
+      --bg:         #0f171a;
+      --white:      #121c20;
+      --gray:       #162226;
+      --text:       #e8f6f7;
+      --text-muted: #9ac6cc;
+    }
+    body.dark-mode nav{
+      background: rgba(15,23,26,0.92);
+    }
+    body.dark-mode .logo-card,
+    body.dark-mode .about-logo-card{
+      background: #121c20;
+    }
+    body.dark-mode footer{
+      background: #0a1012;
+    }
+    body.dark-mode .card-topics li{
+      background: rgba(255,255,255,0.08);
+      color: var(--text-muted);
+    }
+    body.dark-mode .contact-form-card{
+      background: #121c20;
+    }
+    body.dark-mode .form-group input,
+    body.dark-mode .form-group select,
+    body.dark-mode .form-group textarea{
+      background: #0f171a;
+      border-color: rgba(255,255,255,0.08);
+      color: var(--text);
+    }
+    body.dark-mode .form-group input:focus,
+    body.dark-mode .form-group select:focus,
+    body.dark-mode .form-group textarea:focus{
+      border-color: var(--teal);
+      box-shadow: 0 0 0 3px rgba(11,170,184,0.25);
     }
   </style>
 </head>
@@ -205,12 +263,15 @@
     <a class="nav-logo" href="#">
       <img src="logo-color.png" alt="Profe Axell"/>
     </a>
+
     <ul class="nav-links">
       <li><a href="#niveles">Niveles</a></li>
       <li><a href="#steam">STEAM</a></li>
       <li><a href="#sobre">Sobre mí</a></li>
       <li><a href="#contacto" class="nav-cta">Contacto</a></li>
     </ul>
+
+    <button id="darkModeBtn" class="dark-btn" aria-label="Activar modo oscuro">🌙</button>
   </nav>
 
   <!-- HERO -->
@@ -270,13 +331,15 @@
           <a href="#" class="card-btn">Ver recursos →</a>
         </div>
 
-        <!-- CAMBIO AQUI: BOTON DEL CURSO -->
         <div class="nivel-card card-secundaria reveal reveal-delay-2">
           <div class="card-accent"></div>
           <span class="card-tag">Secundaria</span>
           <span class="card-icon">⚡</span>
           <h3 class="card-title">Educación Secundaria</h3>
-          <p class="card-desc">Proyectos interdisciplinarios que conectan ciencias, tecnología y arte. Pensamiento crítico, programación y resolución de problemas del mundo real.</p>
+          <p class="card-desc">
+            Proyectos interdisciplinarios que conectan ciencias, tecnología y arte.
+            Pensamiento crítico, programación y resolución de problemas del mundo real.
+          </p>
           <ul class="card-topics">
             <li>💻 Programación</li>
             <li>⚗️ Química aplicada</li>
@@ -379,13 +442,16 @@
             <p style="font-size:0.85rem; color:var(--text-muted); font-weight:600; line-height:1.6;">Educación STEAM para todos los niveles. Ciencia, Tecnología, Ingeniería, Arte y Matemáticas al alcance de todos.</p>
           </div>
         </div>
+
         <div class="contact-form-card reveal reveal-delay-1">
           <h3 style="font-family:'Paytone One',sans-serif; font-size:1.3rem; margin-bottom:1.5rem;">Envíame un mensaje</h3>
 
           <div id="form-success" style="display:none; text-align:center; padding:2rem 1rem;">
             <div style="font-size:3rem; margin-bottom:1rem;">🎉</div>
             <h4 style="font-family:'Paytone One',sans-serif; font-size:1.2rem; color:var(--teal); margin-bottom:0.75rem;">¡Mensaje enviado!</h4>
-            <p style="color:var(--text-muted); font-size:0.9rem; line-height:1.6;">Tu mensaje fue enviado correctamente.</p>
+            <p style="color:var(--text-muted); font-size:0.9rem; line-height:1.6;">
+              Tu mensaje llegó correctamente.<br/>Te responderé lo antes posible. 😊
+            </p>
             <button onclick="resetForm()" class="btn btn-outline" style="margin-top:1.5rem; font-size:0.85rem;">Enviar otro mensaje</button>
           </div>
 
@@ -432,6 +498,7 @@
     </div>
   </section>
 
+  <!-- FOOTER -->
   <footer>
     <div class="footer-inner">
       <img src="logo-white.png" alt="Profe Axell" style="height:44px; opacity:0.85;"/>
@@ -446,10 +513,92 @@
   </footer>
 
   <script>
+    // Scroll reveal
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+      entries.forEach(e => { 
+        if (e.isIntersecting) { 
+          e.target.classList.add('visible'); 
+          observer.unobserve(e.target); 
+        } 
+      });
     }, { threshold: 0.12 });
+
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Formulario Formspree
+    const FORMSPREE_ID = 'xzdjoljv';
+
+    const form       = document.getElementById('contact-form');
+    const successBox = document.getElementById('form-success');
+    const errorBox   = document.getElementById('form-error');
+    const submitBtn  = document.getElementById('submit-btn');
+    const btnText    = document.getElementById('btn-text');
+    const btnLoader  = document.getElementById('btn-loader');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      errorBox.style.display = 'none';
+      btnText.style.display   = 'none';
+      btnLoader.style.display = 'inline';
+      submitBtn.disabled      = true;
+
+      try {
+        const res = await fetch('https://formspree.io/f/' + FORMSPREE_ID, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (res.ok) {
+          form.style.display       = 'none';
+          successBox.style.display = 'block';
+        } else {
+          throw new Error('Error');
+        }
+      } catch (err) {
+        errorBox.style.display  = 'block';
+        btnText.style.display   = 'inline';
+        btnLoader.style.display = 'none';
+        submitBtn.disabled      = false;
+      }
+    });
+
+    function resetForm(){
+      form.reset();
+      form.style.display = 'block';
+      successBox.style.display = 'none';
+      errorBox.style.display = 'none';
+      btnText.style.display = 'inline';
+      btnLoader.style.display = 'none';
+      submitBtn.disabled = false;
+    }
+
+    // MODO OSCURO
+    const darkBtn = document.getElementById("darkModeBtn");
+
+    function enableDarkMode(){
+      document.body.classList.add("dark-mode");
+      localStorage.setItem("darkMode", "enabled");
+      darkBtn.textContent = "☀️";
+    }
+
+    function disableDarkMode(){
+      document.body.classList.remove("dark-mode");
+      localStorage.setItem("darkMode", "disabled");
+      darkBtn.textContent = "🌙";
+    }
+
+    if(localStorage.getItem("darkMode") === "enabled"){
+      enableDarkMode();
+    }
+
+    darkBtn.addEventListener("click", () => {
+      if(document.body.classList.contains("dark-mode")){
+        disableDarkMode();
+      } else {
+        enableDarkMode();
+      }
+    });
   </script>
 
 </body>
