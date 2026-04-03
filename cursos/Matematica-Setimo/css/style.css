@@ -1,131 +1,88 @@
-/* =========================================
-   STYLE GENERAL - LMS PROFE AXELL
-   Archivo: css/style.css
-========================================= */
-
-body {
-  margin: 0;
-  font-family: "Nunito", sans-serif;
-  background: var(--bg);
-  color: var(--text);
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
-/* =========================================
-   BOTONES
-========================================= */
-
-.btn {
-  padding: 0.7rem 1.4rem;
-  border-radius: 999px;
-  font-family: "Nunito", sans-serif;
-  font-weight: 800;
-  border: none;
-  cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s, background 0.2s, color 0.2s;
+html{
+  scroll-behavior:smooth;
 }
 
-.btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 22px rgba(0,0,0,0.15);
+body{
+  font-family:'Nunito', sans-serif;
+  background:var(--page-bg);
+  color:var(--text);
+  line-height:1.6;
 }
 
-.btn-teal {
-  background: var(--teal);
-  color: #fff;
+/* LINKS */
+a{
+  color:var(--link);
+  text-decoration:none;
+  font-weight:800;
 }
 
-.btn-teal:hover {
-  background: var(--teal-dark);
+a:hover{
+  text-decoration:underline;
 }
 
-.btn-orange {
-  background: var(--orange);
-  color: #fff;
+/* BOTONES */
+.btn{
+  padding:0.75rem 1.4rem;
+  font-weight:900;
+  border-radius:12px;
+  border:none;
+  cursor:pointer;
+  transition:0.2s;
+  font-size:0.95rem;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:0.5rem;
 }
 
-.btn-orange:hover {
-  background: #cc3f16;
+.btn-teal,
+.btn-primary{
+  background:var(--btn-bg);
+  color:var(--btn-text);
 }
 
-.btn-outline {
-  background: transparent;
-  border: 2px solid var(--teal);
-  color: var(--teal);
+.btn-teal:hover,
+.btn-primary:hover{
+  opacity:0.92;
+  transform:translateY(-2px);
 }
 
-body.dark-mode .btn-outline {
-  border: 2px solid var(--blue-light);
-  color: var(--blue-light);
+.btn-outline{
+  background:transparent;
+  border:2px solid var(--btn-bg);
+  color:var(--btn-bg);
 }
 
-.btn-outline:hover {
-  background: var(--teal);
-  color: #fff;
+.btn-outline:hover{
+  background:var(--btn-bg);
+  color:var(--btn-text);
 }
 
-body.dark-mode .btn-outline:hover {
-  background: var(--blue-light);
-  color: #000;
+/* INPUTS */
+input, textarea{
+  font-family:'Nunito', sans-serif;
+  font-weight:700;
+  border-radius:12px;
+  padding:0.8rem 1rem;
+  border:2px solid var(--card-border);
+  outline:none;
+  width:100%;
+  background:rgba(255,255,255,0.65);
+  color:var(--text);
 }
 
-/* =========================================
-   TOPBAR
-========================================= */
-
-.topbar {
-  position: sticky;
-  top: 0;
-  z-index: 200;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 1.8rem;
-  background: var(--card-bg);
-  border-bottom: 1px solid var(--border);
-  box-shadow: var(--shadow);
+body.dark-mode input,
+body.dark-mode textarea{
+  background:rgba(255,255,255,0.05);
 }
 
-.topbar h1 {
-  font-family: "Paytone One", sans-serif;
-  font-size: 1.2rem;
-  margin: 0;
-}
-
-.back-home {
-  text-decoration: none;
-  font-weight: 800;
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  display: inline-block;
-  margin-bottom: 0.35rem;
-}
-
-.back-home:hover {
-  color: var(--teal);
-}
-
-body.dark-mode .back-home:hover {
-  color: var(--blue-light);
-}
-
-.topbar-right {
-  display: flex;
-  gap: 0.6rem;
-}
-
-/* =========================================
-   FOOTER
-========================================= */
-
-.footer {
-  text-align: center;
-  padding: 2rem 1rem;
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  background: var(--gray);
-  border-top: 1px solid var(--border);
-}
-
-body.dark-mode .footer {
-  background: #0b1113;
+input:focus,
+textarea:focus{
+  border-color:var(--btn-bg);
 }
