@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Matemáticas - Sétimo Año | Profe Axell</title>
+
+  <!-- Tipografías del sitio -->
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400&family=Paytone+One&display=swap" rel="stylesheet"/>
+
+  <!-- CSS del LMS -->
+  <link rel="stylesheet" href="css/theme-colors.css"/>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="css/course.css"/>
+
+  <!-- MathJax para LaTeX -->
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+
+  <header class="topbar">
+    <div class="topbar-left">
+      <a href="../../index.html" class="back-home">← Volver a profeaxellpaz.com</a>
+      <h1>Matemáticas - Sétimo Año</h1>
+    </div>
+
+    <div class="topbar-right">
+      <button class="btn btn-outline" id="btnFontMinus">A-</button>
+      <button class="btn btn-outline" id="btnFontPlus">A+</button>
+      <button class="btn btn-outline" id="btnReadingMode">Modo lectura</button>
+    </div>
+  </header>
+
+  <main class="lms-layout">
+
+    <!-- Menú lateral -->
+    <aside class="sidebar">
+      <h2 class="sidebar-title">📚 Contenido</h2>
+      <div id="courseMenu" class="menu"></div>
+
+      <div class="sidebar-footer">
+        <button class="btn btn-teal" id="btnResetProgress">Restablecer progreso</button>
+      </div>
+    </aside>
+
+    <!-- Área principal -->
+    <section class="content-area">
+      <div class="content-header">
+        <h2 id="topicTitle">Bienvenido al curso</h2>
+        <p id="topicDesc">Selecciona un tema del menú para comenzar.</p>
+      </div>
+
+      <div class="progress-box">
+        <div class="progress-label">
+          <span>📈 Progreso general</span>
+          <span id="progressText">0%</span>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+      </div>
+
+      <article id="topicContent" class="topic-content">
+        <div class="welcome-card">
+          <h3>👋 Hola, estudiante</h3>
+          <p>
+            Este curso es autogestionable: puedes estudiar cada tema a tu ritmo.
+            Tu progreso se guarda automáticamente en tu navegador.
+          </p>
+          <p>
+            Cada módulo contiene teoría, ejemplos, ejercicios y un examen final.
+          </p>
+
+          <div class="welcome-actions">
+            <button class="btn btn-orange" id="btnStartCourse">Comenzar curso →</button>
+          </div>
+        </div>
+      </article>
+
+      <div class="topic-actions" id="topicActions" style="display:none;">
+        <button class="btn btn-teal" id="btnMarkComplete">✔ Marcar como completado</button>
+        <button class="btn btn-outline" id="btnGoExam">📝 Ir al examen del módulo</button>
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>© 2026 Profe Axell Paz </p>
+  </footer>
+
+  <script src="js/utils.js"></script>
+  <script src="js/progress.js"></script>
+  <script src="js/router.js"></script>
+  <script src="js/quiz-engine.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+</html>
