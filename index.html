@@ -253,6 +253,7 @@
       <h2 class="section-title reveal">Educación para<br/>cada etapa de vida</h2>
       <p class="section-desc reveal">Contenidos cuidadosamente diseñados para cada nivel, despertando la curiosidad desde los primeros años hasta la formación universitaria.</p>
       <div class="niveles-grid">
+
         <div class="nivel-card card-primaria reveal reveal-delay-1">
           <div class="card-accent"></div>
           <span class="card-tag">Primaria</span>
@@ -268,6 +269,8 @@
           </ul>
           <a href="#" class="card-btn">Ver recursos →</a>
         </div>
+
+        <!-- CAMBIO AQUI: BOTON DEL CURSO -->
         <div class="nivel-card card-secundaria reveal reveal-delay-2">
           <div class="card-accent"></div>
           <span class="card-tag">Secundaria</span>
@@ -281,8 +284,12 @@
             <li>📊 Estadística y datos</li>
             <li>🏗️ Proyectos STEM</li>
           </ul>
-          <a href="#" class="card-btn">Ver recursos →</a>
+
+          <a href="cursos/Matematica-Setimo/" class="card-btn">
+            Curso Matemáticas - Sétimo →
+          </a>
         </div>
+
         <div class="nivel-card card-universitaria reveal reveal-delay-3">
           <div class="card-accent"></div>
           <span class="card-tag">Universitaria</span>
@@ -298,6 +305,7 @@
           </ul>
           <a href="#" class="card-btn">Ver recursos →</a>
         </div>
+
       </div>
     </div>
   </section>
@@ -374,20 +382,17 @@
         <div class="contact-form-card reveal reveal-delay-1">
           <h3 style="font-family:'Paytone One',sans-serif; font-size:1.3rem; margin-bottom:1.5rem;">Envíame un mensaje</h3>
 
-          <!-- MENSAJE DE ÉXITO -->
           <div id="form-success" style="display:none; text-align:center; padding:2rem 1rem;">
             <div style="font-size:3rem; margin-bottom:1rem;">🎉</div>
             <h4 style="font-family:'Paytone One',sans-serif; font-size:1.2rem; color:var(--teal); margin-bottom:0.75rem;">¡Mensaje enviado!</h4>
-            <p style="color:var(--text-muted); font-size:0.9rem; line-height:1.6;">Tu mensaje llegó a <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="9de9e8e9f2eff4fceeddedeff2fbf8fce5f8f1f1edfce7b3fef2f0">[email&#160;protected]</a></strong>.<br/>Te responderé lo antes posible. 😊</p>
+            <p style="color:var(--text-muted); font-size:0.9rem; line-height:1.6;">Tu mensaje fue enviado correctamente.</p>
             <button onclick="resetForm()" class="btn btn-outline" style="margin-top:1.5rem; font-size:0.85rem;">Enviar otro mensaje</button>
           </div>
 
-          <!-- MENSAJE DE ERROR -->
           <div id="form-error" style="display:none; background:rgba(232,74,26,0.08); border:1.5px solid rgba(232,74,26,0.3); border-radius:14px; padding:1rem 1.25rem; margin-bottom:1rem;">
-            <p style="color:var(--orange); font-weight:700; font-size:0.85rem;">⚠️ Hubo un problema al enviar. Intenta de nuevo o escríbeme a <a href="/cdn-cgi/l/email-protection#ccb8b9b8a3bea5adbf8cbcbea3aaa9adb4a9a0a0bcadb6e2afa3a1" style="color:var(--orange);"><span class="__cf_email__" data-cfemail="e29697968d908b8391a292908d8487839a878e8e928398cc818d8f">[email&#160;protected]</span></a></p>
+            <p style="color:var(--orange); font-weight:700; font-size:0.85rem;">⚠️ Hubo un problema al enviar. Intenta de nuevo.</p>
           </div>
 
-          <!-- FORMULARIO -->
           <form id="contact-form">
             <div class="form-row">
               <div class="form-group">
@@ -427,7 +432,6 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer>
     <div class="footer-inner">
       <img src="logo-white.png" alt="Profe Axell" style="height:44px; opacity:0.85;"/>
@@ -441,44 +445,12 @@
     </div>
   </footer>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-    // Scroll reveal
+  <script>
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
     }, { threshold: 0.12 });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
 
-    // Formulario Formspree
-    // REEMPLAZA 'TU_ID_AQUI' con tu codigo de Formspree (ej: xyzabcde)
-    const FORMSPREE_ID = 'xzdjoljv';
-
-    const form       = document.getElementById('contact-form');
-    const successBox = document.getElementById('form-success');
-    const errorBox   = document.getElementById('form-error');
-    const submitBtn  = document.getElementById('submit-btn');
-    const btnText    = document.getElementById('btn-text');
-    const btnLoader  = document.getElementById('btn-loader');
-
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      errorBox.style.display = 'none';
-      btnText.style.display   = 'none';
-      btnLoader.style.display = 'inline';
-      submitBtn.disabled      = true;
-
-      try {
-        const res = await fetch('https://formspree.io/f/' + FORMSPREE_ID, {
-          method: 'POST',
-          body: new FormData(form),
-          headers: { 'Accept': 'application/json' }
-        });
-        if (res.ok) {
-          form.style.display       = 'none';
-          successBox.style.display = 'block';
-        } else {
-          throw new Error('Error');
-        }
-      } catch (err) {
-        errorBox.style.display  = 'block';
-        btnText.style.display   = 'inline';
-        btnLoader.style.display = 'none';
+</body>
+</html>
