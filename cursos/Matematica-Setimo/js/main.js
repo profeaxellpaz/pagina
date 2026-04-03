@@ -109,4 +109,24 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  const btnDarkMode = document.getElementById("btnDarkMode");
+
+if(btnDarkMode){
+  if(document.body.classList.contains("dark-mode")){
+    btnDarkMode.textContent = "☀️";
+  }
+
+  btnDarkMode.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+
+    if(document.body.classList.contains("dark-mode")){
+      localStorage.setItem("darkMode", "enabled");
+      btnDarkMode.textContent = "☀️";
+    } else {
+      localStorage.setItem("darkMode", "disabled");
+      btnDarkMode.textContent = "🌙";
+    }
+  });
+}
+
 });
