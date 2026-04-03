@@ -3,6 +3,11 @@
 // Archivo: js/main.js
 // =====================================
 
+// Aplicar modo oscuro si estaba activado en el sitio principal
+if(localStorage.getItem("darkMode") === "enabled"){
+  document.body.classList.add("dark-mode");
+}
+
 document.addEventListener("DOMContentLoaded", () => {
 
   // ==========================
