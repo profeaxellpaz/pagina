@@ -549,7 +549,7 @@
   <nav>
     <div class="nav-left">
       <a class="nav-logo" href="#">
-        <img src="logo-color.png" alt="Profe Axell"/>
+        <img id="siteLogo" src="logo-color.png" alt="Profe Axell"/>
       </a>
       <div class="nav-title">Plataforma Educativa</div>
     </div>
@@ -775,7 +775,7 @@
   <!-- FOOTER -->
   <footer>
     <div class="footer-inner">
-      <img src="logo-color.png" alt="Profe Axell" style="height:44px; opacity:0.9;"/>
+      <img id="footerLogo" src="logo-color.png" alt="Profe Axell" style="height:44px; opacity:0.9;"/>
       <ul class="footer-links">
         <li><a href="#niveles">Cursos</a></li>
         <li><a href="#sobre">Sobre mí</a></li>
@@ -786,32 +786,40 @@
   </footer>
 
   <script>
-    const darkBtn = document.getElementById("darkModeBtn");
+  const darkBtn = document.getElementById("darkModeBtn");
+  const siteLogo = document.getElementById("siteLogo");
+  const footerLogo = document.getElementById("footerLogo");
 
-    function enableDarkMode(){
-      document.body.classList.add("dark-mode");
-      localStorage.setItem("darkMode", "enabled");
-      darkBtn.textContent = "☀️";
-    }
+  function enableDarkMode(){
+    document.body.classList.add("dark-mode");
+    localStorage.setItem("darkMode", "enabled");
+    darkBtn.textContent = "☀️";
 
-    function disableDarkMode(){
-      document.body.classList.remove("dark-mode");
-      localStorage.setItem("darkMode", "disabled");
-      darkBtn.textContent = "🌙";
-    }
+    if(siteLogo) siteLogo.src = "logo-white.png";
+    if(footerLogo) footerLogo.src = "logo-white.png";
+  }
 
-    if(localStorage.getItem("darkMode") === "enabled"){
+  function disableDarkMode(){
+    document.body.classList.remove("dark-mode");
+    localStorage.setItem("darkMode", "disabled");
+    darkBtn.textContent = "🌙";
+
+    if(siteLogo) siteLogo.src = "logo-color.png";
+    if(footerLogo) footerLogo.src = "logo-color.png";
+  }
+
+  if(localStorage.getItem("darkMode") === "enabled"){
+    enableDarkMode();
+  }
+
+  darkBtn.addEventListener("click", () => {
+    if(document.body.classList.contains("dark-mode")){
+      disableDarkMode();
+    } else {
       enableDarkMode();
     }
-
-    darkBtn.addEventListener("click", () => {
-      if(document.body.classList.contains("dark-mode")){
-        disableDarkMode();
-      } else {
-        enableDarkMode();
-      }
-    });
-  </script>
+  });
+</script>
 
 </body>
 </html>
