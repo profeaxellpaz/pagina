@@ -32,6 +32,12 @@
   color:var(--btn-bg);
 }
 
+.topbar-right{
+  display:flex;
+  gap:0.6rem;
+  flex-wrap:wrap;
+}
+
 /* ==============================
    LAYOUT
 ============================== */
@@ -69,22 +75,21 @@
   gap:0.5rem;
 }
 
-/* BOTONES DEL MENU */
 .menu button{
   width:100%;
   text-align:left;
   border:none;
-  background:rgba(0,0,0,0.04);
+  background:rgba(0,0,0,0.05);
   color:var(--text);
   font-weight:900;
   padding:0.75rem 0.85rem;
-  border-radius:12px;
+  border-radius:14px;
   cursor:pointer;
   transition:0.2s;
 }
 
 body.dark-mode .menu button{
-  background:rgba(255,255,255,0.05);
+  background:rgba(255,255,255,0.06);
 }
 
 .menu button:hover{
@@ -96,7 +101,6 @@ body.dark-mode .menu button{
   color:var(--btn-text);
 }
 
-/* SUBTITULOS DEL MENU */
 .menu .module-title{
   font-size:0.9rem;
   font-weight:900;
@@ -105,7 +109,6 @@ body.dark-mode .menu button{
   margin-bottom:0.25rem;
 }
 
-/* FOOTER SIDEBAR */
 .sidebar-footer{
   margin-top:1.5rem;
 }
@@ -142,7 +145,7 @@ body.dark-mode .menu button{
   border-radius:var(--radius-sm);
   padding:1rem;
   margin-bottom:1.5rem;
-  background:rgba(255,255,255,0.5);
+  background:rgba(255,255,255,0.65);
 }
 
 body.dark-mode .progress-box{
@@ -204,8 +207,8 @@ body.dark-mode .progress-bar{
 .topic-content .example-box{
   border-left:6px solid var(--btn-bg);
   padding:1rem 1.2rem;
-  border-radius:12px;
-  background:rgba(255,255,255,0.55);
+  border-radius:14px;
+  background:rgba(255,255,255,0.65);
   margin:1.2rem 0;
   border:2px solid var(--card-border);
 }
@@ -217,13 +220,13 @@ body.dark-mode .topic-content .example-box{
 .topic-content .exercise-box{
   margin:1.2rem 0;
   padding:1.2rem;
-  border-radius:12px;
+  border-radius:14px;
   border:2px dashed var(--card-border);
-  background:rgba(255,255,255,0.4);
+  background:rgba(255,255,255,0.5);
 }
 
 body.dark-mode .topic-content .exercise-box{
-  background:rgba(255,255,255,0.04);
+  background:rgba(255,255,255,0.05);
 }
 
 /* ==============================
@@ -234,6 +237,24 @@ body.dark-mode .topic-content .exercise-box{
   gap:1rem;
   margin-top:2rem;
   flex-wrap:wrap;
+}
+
+/* ==============================
+   WELCOME CARD
+============================== */
+.welcome-card{
+  padding:1.5rem;
+  border-radius:16px;
+  border:2px solid var(--card-border);
+  background:rgba(255,255,255,0.7);
+}
+
+body.dark-mode .welcome-card{
+  background:rgba(255,255,255,0.05);
+}
+
+.welcome-actions{
+  margin-top:1.5rem;
 }
 
 /* ==============================
