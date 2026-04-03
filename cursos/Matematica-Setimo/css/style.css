@@ -1,40 +1,37 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html { scroll-behavior: smooth; }
+/* =========================================
+   STYLE GENERAL - LMS PROFE AXELL
+   Archivo: css/style.css
+========================================= */
 
 body {
-  font-family: 'Nunito', sans-serif;
+  margin: 0;
+  font-family: "Nunito", sans-serif;
   background: var(--bg);
   color: var(--text);
 }
 
-h1, h2, h3 {
-  font-family: 'Paytone One', sans-serif;
-}
+/* =========================================
+   BOTONES
+========================================= */
 
 .btn {
+  padding: 0.7rem 1.4rem;
+  border-radius: 999px;
+  font-family: "Nunito", sans-serif;
+  font-weight: 800;
   border: none;
   cursor: pointer;
-  font-family: 'Nunito', sans-serif;
-  font-weight: 800;
-  border-radius: 999px;
-  padding: 0.7rem 1.4rem;
-  font-size: 0.9rem;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: transform 0.2s, box-shadow 0.2s, background 0.2s, color 0.2s;
 }
 
 .btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 22px rgba(0,0,0,0.12);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.15);
 }
 
 .btn-teal {
   background: var(--teal);
-  color: white;
+  color: #fff;
 }
 
 .btn-teal:hover {
@@ -43,7 +40,11 @@ h1, h2, h3 {
 
 .btn-orange {
   background: var(--orange);
-  color: white;
+  color: #fff;
+}
+
+.btn-orange:hover {
+  background: #cc3f16;
 }
 
 .btn-outline {
@@ -52,7 +53,79 @@ h1, h2, h3 {
   color: var(--teal);
 }
 
+body.dark-mode .btn-outline {
+  border: 2px solid var(--blue-light);
+  color: var(--blue-light);
+}
+
 .btn-outline:hover {
   background: var(--teal);
-  color: white;
+  color: #fff;
+}
+
+body.dark-mode .btn-outline:hover {
+  background: var(--blue-light);
+  color: #000;
+}
+
+/* =========================================
+   TOPBAR
+========================================= */
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.8rem;
+  background: var(--card-bg);
+  border-bottom: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+.topbar h1 {
+  font-family: "Paytone One", sans-serif;
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.back-home {
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  display: inline-block;
+  margin-bottom: 0.35rem;
+}
+
+.back-home:hover {
+  color: var(--teal);
+}
+
+body.dark-mode .back-home:hover {
+  color: var(--blue-light);
+}
+
+.topbar-right {
+  display: flex;
+  gap: 0.6rem;
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  background: var(--gray);
+  border-top: 1px solid var(--border);
+}
+
+body.dark-mode .footer {
+  background: #0b1113;
 }
