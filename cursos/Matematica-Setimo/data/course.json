@@ -1,1 +1,16 @@
-
+{
+  "courseTitle": "Matemáticas - Sétimo Año",
+  "modules": [
+    {
+      "id": "modulo1",
+      "title": "Módulo 1 - Números",
+      "topics": [
+        { "id": "tema01", "title": "Adición y sustracción con números naturales", "file": "modules/modulo1/tema01.html" },
+        { "id": "tema02", "title": "Multiplicación y división de números naturales", "file": "modules/modulo1/tema02.html" },
+        { "id": "tema03", "title": "Potencias", "file": "modules/modulo1/tema03.html" },
+        { "id": "tema04", "title": "Combinación de operaciones", "file": "modules/modulo1/tema04.html" },
+        { "id": "tema05", "title": "Reglas de divisibilidad (2,3,5,7,11)", "file": "modules/modulo1/tema05.html" }
+      ]
+    }
+  ]
+}
