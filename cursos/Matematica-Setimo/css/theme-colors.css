@@ -1,3 +1,8 @@
+/* =========================================
+   TEMA DE COLORES - LMS PROFE AXELL
+   Archivo: css/theme-colors.css
+========================================= */
+
 :root {
   --teal:       #0BAAB8;
   --teal-dark:  #098a96;
@@ -5,9 +10,35 @@
   --yellow:     #F5A800;
   --blue-light: #62B8E8;
   --blue-mid:   #3B69C4;
+
   --white:      #ffffff;
   --bg:         #f7fefe;
   --gray:       #f0f4f5;
+
   --text:       #1a2a2e;
   --text-muted: #5a7a80;
+
+  --card-bg:    #ffffff;
+  --border:     rgba(0,0,0,0.08);
+
+  --shadow:     0 18px 60px rgba(0,0,0,0.10);
+}
+
+/* =========================================
+   MODO OSCURO PARA LMS
+   Se activa cuando body tiene la clase .dark-mode
+========================================= */
+
+body.dark-mode {
+  --bg:         #0f171a;
+  --gray:       #162226;
+  --white:      #121c20;
+
+  --text:       #e8f6f7;
+  --text-muted: #9ac6cc;
+
+  --card-bg:    #121c20;
+  --border:     rgba(255,255,255,0.12);
+
+  --shadow:     0 18px 60px rgba(0,0,0,0.35);
 }
